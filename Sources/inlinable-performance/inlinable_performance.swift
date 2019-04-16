@@ -29,6 +29,10 @@ func matmul_internal<T: Numeric>(lhs: [T], rhs: [T], m: Int, n: Int, p: Int) -> 
     return ret
 }
 
+public func matmul_base<T: Numeric>(lhs: [T], rhs: [T], m: Int, n: Int, p: Int) -> [T] {
+    return matmul_internal(lhs: lhs, rhs: rhs, m: m, n: n, p: p)
+}
+
 @inlinable
 public func matmul_inlinable<T: Numeric>(lhs: [T], rhs: [T], m: Int, n: Int, p: Int) -> [T] {
     return matmul_internal(lhs: lhs, rhs: rhs, m: m, n: n, p: p)

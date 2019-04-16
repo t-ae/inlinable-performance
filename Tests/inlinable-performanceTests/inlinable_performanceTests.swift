@@ -18,6 +18,13 @@ final class inlinable_performanceTests: XCTestCase {
         answer = matmul_specialize(lhs: lhs, rhs: rhs, m: m, n: n, p: p)
     }
     
+    func testBase() {
+        measure {
+            let result = matmul_base(lhs: lhs, rhs: rhs, m: m, n: n, p: p)
+            XCTAssertEqual(result[0], answer[0])
+        }
+    }
+    
     func testInlinable() {
         measure {
             let result = matmul_inlinable(lhs: lhs, rhs: rhs, m: m, n: n, p: p)
